@@ -73,3 +73,5 @@ The figure below illustrates this behavior using an example.
 ### A markdown **nagyon** *jó*.
 A markdown az egyik legegyszerűbb dokumentumleíró nyelv. <br>
 <s>Html tageket is támogat</s>, de szerencsére nem sokszor van rájuk szükség.
+
+## Conflicting line for task 5 (b);
