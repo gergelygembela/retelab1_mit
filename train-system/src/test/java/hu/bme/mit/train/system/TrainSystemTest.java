@@ -7,6 +7,7 @@ import org.junit.Test;
 import hu.bme.mit.train.interfaces.TrainController;
 import hu.bme.mit.train.interfaces.TrainSensor;
 import hu.bme.mit.train.interfaces.TrainUser;
+import hu.bme.mit.train.interfaces.TrainDoor;
 import hu.bme.mit.train.system.TrainSystem;
 
 public class TrainSystemTest {
@@ -14,6 +15,7 @@ public class TrainSystemTest {
 	TrainController controller;
 	TrainSensor sensor;
 	TrainUser user;
+	TrainDoor door;
 	
 	@Before
 	public void before() {
@@ -21,7 +23,8 @@ public class TrainSystemTest {
 		controller = system.getController();
 		sensor = system.getSensor();
 		user = system.getUser();
-
+		door = system.getDoor();
+		
 		sensor.overrideSpeedLimit(50);
 	}
 	
@@ -50,5 +53,12 @@ public class TrainSystemTest {
 		Assert.assertEquals(0, controller.getReferenceSpeed());
 	}
 
+	@Test
+	public void HavingTheDoorOpen_PreventsNonZeroReferenceSpeed() {
+		door.setIsDoorOpen(true);
+		user.overrideJoystickPosition(4);
+		controller.followSpeed();
+		Assert.assertEquals(0, controller.getReferenceSpeed());
+	}
 	
 }
