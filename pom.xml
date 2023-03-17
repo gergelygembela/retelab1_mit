@@ -14,6 +14,7 @@
     <modules>
         <module>train-interfaces</module>
         <module>train-controller</module>
+        <module>train-door</module>
         <module>train-sensor</module>
         <module>train-system</module>
         <module>train-user</module>

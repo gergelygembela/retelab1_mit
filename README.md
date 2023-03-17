@@ -63,6 +63,10 @@ The figure below illustrates this behavior using an example.
 1. However, it reaches the speed limit so in the next step it is not incremented even though the joystick still has a positive value.
 1. Later, the joystick is set to a negative position for one time unit, making the reference speed to decrease as well.
 
+## Resolution of issue "Add support to the controller to detect open passenger doors"
+- An interface [(TrainDoor)](train-interfaces/src/main/java/hu/bme/mit/train/interfaces/TrainDoor.java) has been created that keeps track of the door's state
+- A new subproject [train-door](train-door) has been added along with the implementation of TrainDoor.
+- The TrainSystem class has been updated so that the train system actually makes use of the new TrainDoor component.
 
 <!-- This part is not a continuation of the documentation above. -->
 # Retelab1 2. labor kommentek
