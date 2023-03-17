@@ -74,4 +74,8 @@ The figure below illustrates this behavior using an example.
 A markdown az egyik legegyszerűbb dokumentumleíró nyelv. <br>
 <s>Html tageket is támogat</s>, de szerencsére nem sokszor van rájuk szükség.
 
+<<<<<<< HEAD
 ### Task 5 -- conflicting line A
+=======
+## Conflicting line for task 5 (b);
+>>>>>>> branch-b
