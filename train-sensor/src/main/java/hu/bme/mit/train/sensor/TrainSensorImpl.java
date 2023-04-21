@@ -6,6 +6,11 @@ import hu.bme.mit.train.interfaces.TrainUser;
 
 public class TrainSensorImpl implements TrainSensor {
 
+
+	private final int lowerAbsoluteLimit = 0;
+	private final int higherAbsoluteLimit = 500;
+	private final double relativeWarningRatio = 0.5;
+
 	private TrainController controller;
 	private TrainUser user;
 	private int speedLimit = 5;
@@ -24,6 +29,17 @@ public class TrainSensorImpl implements TrainSensor {
 	public void overrideSpeedLimit(int speedLimit) {
 		this.speedLimit = speedLimit;
 		controller.setSpeedLimit(speedLimit);
+
+		//alarm
+		if(speedLimit < this.lowerAbsoluteLimit || speedLimit > this.higherAbsoluteLimit){
+			user.setAlarmState(true);
+		}
+		if((controller.getReferenceSpeed() - speedLimit) > relativeWarningRatio * controller.getReferenceSpeed() ){
+			user.setAlarmState(true);
+		}
+
 	}
+
+
 
 }
